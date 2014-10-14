@@ -5,13 +5,13 @@
     <div class="issue-col-left">
         <img class="gravatar" src="<%- model.get("user").avatar_url %>">
         <div class="github-handle">
-            <%=utility.linkGHHandles("@" + model.get("user").login) %>
+            <%=utility.link("@" + model.get("user").login) %>
         </div>
         <div class="issue-state">State: <%-model.get("state") %></div>
         <div class="issue-labels">Labels:
             <% _.each(labels, function(label) { %>
                 <div class="label">
-                    <%- label %>
+                    <%= label %>
                 </div>
             <% }); %>
         </div>
@@ -20,15 +20,15 @@
         <div class="issue-header">
             <a href=""> 
                 <span class="issue-number">
-                    #<%- model.get("number") %>
+                    #<%= model.get("number") %>
                 </span>
                 <span class="issue-title">
-                    <%- model.get("title") %>
+                    <%= model.get("title") %>
                 </span>
             </a>
         </div>
         <div class="issue-body">
-          <%- utility.linkGHHandles(model.get("body")) %>
+          <%= utility.link(model.get("body")) %>
         </div>
         <div class="comments">
             <h3 class="comments-header"> Comments (<%- model.get("comments") %>): </h3>
@@ -37,12 +37,12 @@
                     <div class="comment-col-left">
                         <img class="gravatar" src="<%- comment.user.avatar_url %>">
                         <div class="github-handle">
-                            <%=utility.linkGHHandles("@" + comment.user.login) %>
+                            <%=utility.link("@" + comment.user.login) %>
                         </div>
                     </div> 
                     <div class="comment-col-right">
                         <div class="comment-body">
-                            <%= utility.linkGHHandles(comment.body) %>
+                            <%= utility.link(comment.body) %>
                         </div>
                     </div>
                 </div>

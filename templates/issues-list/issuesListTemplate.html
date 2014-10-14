@@ -7,9 +7,9 @@
         <!-- Change so that someone can click on an issue -->
         <div class="issue">
             <div class="issue-col-left">
-                <img class="gravatar" src="<%- issue.get("user").avatar_url %>">
+                <img class="gravatar" src="<%= issue.get("user").avatar_url %>">
                 <div class="github-handle">
-                    <%=utility.linkGHHandles("@" + issue.get("user").login) %>
+                    <%=utility.link("@" + issue.get("user").login) %>
                 </div>
             </div>
             <div class="issue-col-center">
@@ -24,7 +24,7 @@
                     </a>
                 </div>
                 <div class="issue-body">
-                  <%= utility.linkGHHandles(utility.makeBlurb(issue.get("body"), 140)) %>
+                  <%= utility.link(utility.makeBlurb(issue.get("body"), 140)) %>
                 </div>
             </div>
         </div>

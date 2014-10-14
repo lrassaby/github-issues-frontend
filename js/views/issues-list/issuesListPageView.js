@@ -17,12 +17,12 @@ define([
         this.$el.html(issuesListPageTemplate);
         var basepath = this.options.dev + "/" + this.options.repo;
         var currpage = parseInt(this.options.page, 10);
-        $("#page-left").click(function() {
+        $(".page-left").click(function() {
           if (currpage > 1) {
             window.location = "/#/" + basepath + "?page=" + (currpage-1);
           }
         });
-        $("#page-right").click(function() {
+        $(".page-right").click(function() {
             window.location = "/#/" + basepath + "?page=" + (currpage+1);
         });
         $("#repo-input").val(this.options.dev + "/" + this.options.repo);
