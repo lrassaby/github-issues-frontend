@@ -14,10 +14,11 @@ when you're in the root directory (or start a web server any other way you like.
 	
 Technologies
 ---
-- Backbone for routing, etc.
+- Backbone for routing, views, etc.
 - Underscore.js for templates
 - Bootstrap
-- Require.js
+- JQuery
+- Require.js and the Text.js plugin
 - FontAwesome
 
 Still In Progress
