@@ -1,0 +1,9 @@
+<% if (typeof error !== "undefined") { %>
+<span class="error"> Error: <%= error %> </span>
+<% } else { %>
+<ul>
+  <% _.each(issues, function(issue) { %>
+    <li><%= issue.get("body") %></li> 
+  <% }); %>
+</ul>
+<% } %>

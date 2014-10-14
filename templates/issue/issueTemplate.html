@@ -1,0 +1,5 @@
+<ul>
+  <% _.each(issues, function(issue) { %>
+   <li><a href='<%= project.get("url") %>'><%= issue.get("title") %></a></li> 
+  <% }); %>
+</ul>
