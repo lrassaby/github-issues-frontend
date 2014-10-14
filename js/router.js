@@ -29,7 +29,7 @@ define([
           pageView.render();
         });
         app_router.on('route:defaultRoute', function (actions) {
-          window.location = "/#/rails/rails";
+          window.location = window.location.pathname + "#/rails/rails";
         });
         // Start Backbone history for bookmarkable URL's
         Backbone.history.start();

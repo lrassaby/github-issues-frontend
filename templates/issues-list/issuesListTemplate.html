@@ -14,7 +14,7 @@
             </div>
             <div class="issue-col-center">
                 <div class="issue-header">
-                    <a href="/#/<%=collection.options.dev + '/' + collection.options.repo + '/' + issue.get('number') %>">
+                    <a href="<%=window.location.pathname%>#/<%=collection.options.dev + '/' + collection.options.repo + '/' + issue.get('number') %>">
                         <span class="issue-number">
                             #<%- issue.get("number") %>
                         </span>
