@@ -20,14 +20,14 @@ define([
         utility: utility
       };
       var compiledTemplate = _.template(issuesListTemplate);
-      $("#issues-list").html(compiledTemplate(data));
+      $("#issues-list-root").html(compiledTemplate(data));
     },
     fetchError: function (collection, response) {
       var data = {
         error: "Couldn't pull that repository. Check that you put in the right one."
       };
       var compiledTemplate = _.template(issuesListTemplate);
-      $("#issues-list").html(compiledTemplate(data));
+      $("#issues-list-root").html(compiledTemplate(data));
     }
   });
 });
