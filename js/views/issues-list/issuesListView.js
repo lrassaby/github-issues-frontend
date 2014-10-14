@@ -5,9 +5,9 @@ define([
   'backbone',
   'models/issueModel',
   'collections/issuesCollection',
-  'text!templates/issues-list/issuesListTemplate.html'
-
-], function($, _, Backbone, issueModel, issuesCollection, issuesListTemplate){
+  'text!templates/issues-list/issuesListTemplate.html',
+  'utility'
+], function($, _, Backbone, issueModel, issuesCollection, issuesListTemplate, utility){
   return Backbone.View.extend({
     el: $("#issues-list"),
     render: function(){
@@ -15,8 +15,9 @@ define([
     },
     fetchSuccess: function(collection, response) {
       var data = {
-        issues: collection.models,
-        _: _
+        collection: collection,
+        _: _,
+        utility: utility
       };
       var compiledTemplate = _.template(issuesListTemplate);
       $("#issues-list").html(compiledTemplate(data));

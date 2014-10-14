@@ -1,9 +1,34 @@
 <% if (typeof error !== "undefined") { %>
 <span class="error"> Error: <%= error %> </span>
 <% } else { %>
-<ul>
-  <% _.each(issues, function(issue) { %>
-    <li><%= issue.get("body") %></li> 
+<ul class="issue-list">
+  <% _.each(collection.models, function(issue) { %>
+    <li class="issue-item">
+        <div class="issue">
+            <div class="issue-col-left">
+                <img class="gravatar" src="<%- issue.get("user").avatar_url %>">
+                <div class="github-handle">
+                    <%=utility.linkProfiles("@" + issue.get("user").login) %>
+                </div>
+            </div>
+            <div class="issue-col-center">
+                <div class="issue-header">
+                    <a href=""> 
+                        <span class="issue-number">
+                            #<%- issue.get("number") %>
+                        </span>
+                        <span class="issue-title">
+                            <%- issue.get("title") %>
+                        </span>
+                    </a>
+                </div>
+                <div class="issue-body">
+                  <%= utility.linkProfiles(utility.makeBlurb(issue.get("body"), 140)) %>
+                </div>
+            </div>
+        </div>
+    </li> 
   <% }); %>
 </ul>
 <% } %>
+

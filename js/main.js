@@ -9,7 +9,8 @@ require.config({
         jquery: 'vendor/jquery.min',
         text: 'vendor/text',
         router: 'router',
-        templates: '../templates'
+        templates: '../templates',
+        utility: 'utility'
     }
 });
 
