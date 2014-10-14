@@ -23,11 +23,14 @@ define([
       $("#issues-list-root").html(compiledTemplate(data));
     },
     fetchError: function (collection, response) {
-      var data = {
-        error: "Couldn't pull that repository. Check that you put in the right one."
-      };
+      var error;
+      if (response.status == 404) {
+        error = "Couldn't find that repository. Check that you put in the right one.";
+      } else if (response.status == 403) {
+        error = "Access denied. You've probably hit the Github API limit.";
+      }
       var compiledTemplate = _.template(issuesListTemplate);
-      $("#issues-list-root").html(compiledTemplate(data));
+      $("#issues-list-root").html(compiledTemplate({error: error}));
     }
   });
 });
