@@ -1,0 +1,35 @@
+<% if (typeof error !== "undefined") { %>
+<span class="error"> Error: <%= error %> </span>
+<% } else { %>
+<ul class="issue-list">
+  <% _.each(collection.models, function(issue) { %>
+    <li class="issue-item">
+        <!-- Change so that someone can click on an issue -->
+        <div class="issue">
+            <div class="issue-col-left">
+                <img class="gravatar" src="<%= issue.get("user").avatar_url %>">
+                <div class="github-handle">
+                    <%=utility.link("@" + issue.get("user").login) %>
+                </div>
+            </div>
+            <div class="issue-col-center">
+                <div class="issue-header">
+                    <a href="<%=window.location.pathname%>#/<%=collection.options.dev + '/' + collection.options.repo + '/' + issue.get('number') %>">
+                        <span class="issue-number">
+                            #<%- issue.get("number") %>
+                        </span>
+                        <span class="issue-title">
+                            <%- issue.get("title") %>
+                        </span>
+                    </a>
+                </div>
+                <div class="issue-body">
+                  <%= utility.link(utility.makeBlurb(issue.get("body"), 140)) %>
+                </div>
+            </div>
+        </div>
+    </li> 
+  <% }); %>
+</ul>
+<% } %>
+
