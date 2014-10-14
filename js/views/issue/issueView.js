@@ -18,8 +18,17 @@ define([
         _: _,
         utility: utility
       };
-      var compiledTemplate = _.template(issueTemplate);
-      $("#issue-root").html(compiledTemplate(data));
+      $.when(
+        $.getJSON(model.get("comments_url").replace(/\{.*\}/, ""), function(comments) {
+          data.comments = comments;
+        }),
+        $.getJSON(model.get("labels_url").replace(/\{.*\}/, ""), function(labels) {
+          data.labels= labels;
+        })
+      ).then(function() {
+        var compiledTemplate = _.template(issueTemplate);
+        $("#issue-root").html(compiledTemplate(data));
+      });
     },
     fetchError: function (model, response) {
       var data = {

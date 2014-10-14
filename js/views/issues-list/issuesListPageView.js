@@ -15,6 +15,21 @@ define([
       },
       render: function(){
         this.$el.html(issuesListPageTemplate);
+        var basepath = this.options.dev + "/" + this.options.repo;
+        var currpage = parseInt(this.options.page, 10);
+        $("#page-left").click(function() {
+          if (currpage > 1) {
+            window.location = "/#/" + basepath + "?page=" + (currpage-1);
+          }
+        });
+        $("#page-right").click(function() {
+            window.location = "/#/" + basepath + "?page=" + (currpage+1);
+        });
+        $("#repo-input").val(this.options.dev + "/" + this.options.repo);
+        $("#repo-load").click(function () {
+          var input_value = $("#repo-input").val();
+          window.location = "/#/" + input_value;
+        });
 
         var issueList = new issuesCollection(this.options);
         var list = new issuesListView({collection: issueList});
