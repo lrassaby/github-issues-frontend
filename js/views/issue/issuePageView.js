@@ -1,22 +1,24 @@
-/* issuesListPageView.js */
+/* issuePageView.js */
 define([
   'jquery',
   'underscore',
   'backbone',
   'models/issueModel',
-  'collections/issuesCollection',
-  'views/issues-list/issuesListView',
-  'text!templates/issues-list/issuesListPageTemplate.html'
-  ], function($, _, Backbone, issueModel, issuesCollection, issuesListView, issuesListPageTemplate){
+  'views/issue/issueView',
+  'text!templates/issue/issuePageTemplate.html'
+  ], function($, _, Backbone, issueModel, issueView, issuePageTemplate){
     return Backbone.View.extend({
       el: $("#main"),
+      initialize: function(options) {
+        this.options = options;
+      },
       render: function(){
-        this.$el.html(issuesListPageTemplate);
+        this.$el.html(issuePageTemplate);
 
-        var issuesOnPage = new issuesCollection();
-        var list = new issuesListView({ collection: projectsCollection});
+        var model = new issueModel(this.options);
+        var view = new issueView({model: model});
 
-        list.render();
+        view.render();
       }
     });
   });

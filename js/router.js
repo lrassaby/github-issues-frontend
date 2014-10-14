@@ -24,8 +24,9 @@ define([
           var listView = new issuesListPageView({dev: dev, repo: repo, page: page, perpage: perpage});
           listView.render();
         });
-        app_router.on('route:getIssue', function (dev, repo, id) {
-          alert("Get issue number " + id + " from " + repo);
+        app_router.on('route:getIssue', function (dev, repo, number) {
+          var pageView = new issuePageView({dev: dev, repo: repo, number: number});
+          pageView.render();
         });
         app_router.on('route:defaultRoute', function (actions) {
           window.location = "/#/rails/rails";

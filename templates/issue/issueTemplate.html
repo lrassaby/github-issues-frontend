@@ -1,5 +1,29 @@
-<ul>
-  <% _.each(issues, function(issue) { %>
-   <li><a href='<%= project.get("url") %>'><%= issue.get("title") %></a></li> 
-  <% }); %>
+<% if (typeof error !== "undefined") { %>
+<span class="error"> Error: <%= error %> </span>
+<% } else { %>
+<div class="issue">
+    <div class="issue-col-left">
+        <img class="gravatar" src="<%- model.get("user").avatar_url %>">
+        <div class="github-handle">
+            <%=utility.linkGHHandles("@" + model.get("user").login) %>
+        </div>
+    </div>
+    <div class="issue-col-center">
+        <div class="issue-header">
+            <a href=""> 
+                <span class="issue-number">
+                    #<%- model.get("number") %>
+                </span>
+                <span class="issue-title">
+                    <%- model.get("title") %>
+                </span>
+            </a>
+        </div>
+        <div class="issue-body">
+          <%= utility.linkGHHandles(model.get("body")) %>
+        </div>
+    </div>
+</div>
 </ul>
+<% } %>
+

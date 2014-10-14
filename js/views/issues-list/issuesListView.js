@@ -9,7 +9,7 @@ define([
   'utility'
 ], function($, _, Backbone, issueModel, issuesCollection, issuesListTemplate, utility){
   return Backbone.View.extend({
-    el: $("#issues-list"),
+    el: $("#issues-list-root"),
     render: function(){
       this.collection.fetch({success: this.fetchSuccess, error: this.fetchError});
     },

@@ -1,24 +1,32 @@
-/* issuesListView.js */
+/* issueView.js */
 define([
   'jquery',
   'underscore',
   'backbone',
   'models/issueModel',
-  'collections/issuesCollection',
-  'text!templates/issue/issueTemplate.html'
-
-], function($, _, Backbone, issueModel, issuesCollection, issueTemplate){
+  'text!templates/issue/issueTemplate.html',
+  'utility'
+], function($, _, Backbone, issueModel, issueTemplate, utility){
   return Backbone.View.extend({
-    el: $("#issues-list"),
+    el: $("#issue-root"),
     render: function(){
-      this.collection.fetch();
+      this.model.fetch({success: this.fetchSuccess, error: this.fetchError});
+    },
+    fetchSuccess: function(model, response) {
       var data = {
-        issues: this.collection.models,
-        _: _
+        model: model,
+        _: _,
+        utility: utility
       };
-
-      var compiledTemplate = _.template(projectsListTemplate, data);
-      $("#projects-list").html(compiledTemplate);
+      var compiledTemplate = _.template(issueTemplate);
+      $("#issue-root").html(compiledTemplate(data));
+    },
+    fetchError: function (model, response) {
+      var data = {
+        error: "Couldn't pull that repository. Check that you put in the right one."
+      };
+      var compiledTemplate = _.template(issueTemplate);
+      $("#issue-root").html(compiledTemplate(data));
     }
   });
 });

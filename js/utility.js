@@ -9,11 +9,10 @@ define([], function getUtilities() {
     }
     return blurb;
   }
-  /* COME BACK TO THIS */
-  function linkProfiles(text) {
-    return text.replace(/(^|\s|>)@([a-zA-Z0-9_-]{2,})/g, '$1<a href="https://github.com/$2">@$2</a>');
+  function linkGHHandles(text) {
+    return text.replace(/(^|\s|>)@([a-zA-Z0-9_-]{2,})/g, '<a href="https://github.com/$2">@$2</a>');
   }
 
   return {makeBlurb: makeBlurb,
-          linkProfiles: linkProfiles};
+          linkGHHandles: linkGHHandles};
 });

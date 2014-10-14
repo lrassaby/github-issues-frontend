@@ -8,7 +8,7 @@
             <div class="issue-col-left">
                 <img class="gravatar" src="<%- issue.get("user").avatar_url %>">
                 <div class="github-handle">
-                    <%=utility.linkProfiles("@" + issue.get("user").login) %>
+                    <%=utility.linkGHHandles("@" + issue.get("user").login) %>
                 </div>
             </div>
             <div class="issue-col-center">
@@ -23,7 +23,7 @@
                     </a>
                 </div>
                 <div class="issue-body">
-                  <%= utility.linkProfiles(utility.makeBlurb(issue.get("body"), 140)) %>
+                  <%= utility.linkGHHandles(utility.makeBlurb(issue.get("body"), 140)) %>
                 </div>
             </div>
         </div>
