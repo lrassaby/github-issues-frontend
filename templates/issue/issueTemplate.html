@@ -7,6 +7,14 @@
         <div class="github-handle">
             <%=utility.linkGHHandles("@" + model.get("user").login) %>
         </div>
+        <div class="issue-state">State: <%-model.get("state") %></div>
+        <div class="issue-labels">Labels:
+            <% _.each(labels, function(label) { %>
+                <div class="label">
+                    <%- label %>
+                </div>
+            <% }); %>
+        </div>
     </div>
     <div class="issue-col-center">
         <div class="issue-header">
@@ -20,9 +28,26 @@
             </a>
         </div>
         <div class="issue-body">
-          <%= utility.linkGHHandles(model.get("body")) %>
+          <%- utility.linkGHHandles(model.get("body")) %>
         </div>
-        <div class="comments"></div>
+        <div class="comments">
+            <h3 class="comments-header"> Comments (<%- model.get("comments") %>): </h3>
+            <% _.each(comments, function(comment) { %>
+                <div class="comment">   
+                    <div class="comment-col-left">
+                        <img class="gravatar" src="<%- comment.user.avatar_url %>">
+                        <div class="github-handle">
+                            <%=utility.linkGHHandles("@" + comment.user.login) %>
+                        </div>
+                    </div> 
+                    <div class="comment-col-right">
+                        <div class="comment-body">
+                            <%= utility.linkGHHandles(comment.body) %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
     </div>
 </div>
 </ul>

@@ -35,16 +35,17 @@ body {
     font-size: 25px
 }
 .issue {
-    cursor: pointer;
     padding: 5px;
     margin-bottom: 20px;
 }
-.issue:hover {
-    background-color: #EFEFEF;
-    border-radius: 5px;
+.issue-col-left {
+    display:inline-block;
+    width:70px;
 }
-.issue-left {
-    padding-right: 10px;
+.issue-col-center{
+    display: inline-block;
+    width:80%;
+    margin-left: 30px;
 }
 .gravatar {
     border-radius: 4px;
@@ -55,9 +56,6 @@ body {
 .github-handle {
     font-size: 11px;
 }
-.issue-right {
-    text-align: right;
-}
 .issue-header {
     font-size: 17px;
     font-weight: bold;
@@ -66,5 +64,25 @@ body {
 .issue-body {
     word-wrap: break-word;
 }
+.issue-state {
+    font-size: 11px;
+}
+.issue-labels {
+    font-size: 11px;
+}
+.comment-col-left {
+    margin-left: 20px;
+    display:inline-block;
+    width:70px;
+}
+.comment-col-right {
+    display: inline-block;
+    width:50%;
+    margin-left: 30px;
+}
+.comment-body {
+    word-wrap: break-word;
+}
+
 
 

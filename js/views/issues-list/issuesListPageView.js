@@ -26,6 +26,11 @@ define([
             window.location = "/#/" + basepath + "?page=" + (currpage+1);
         });
         $("#repo-input").val(this.options.dev + "/" + this.options.repo);
+        $('#repo-input').keypress(function(e){
+            if(e.which == 13) {
+              $('#repo-load').click();//Trigger search button click event
+            }
+        });
         $("#repo-load").click(function () {
           var input_value = $("#repo-input").val();
           window.location = "/#/" + input_value;

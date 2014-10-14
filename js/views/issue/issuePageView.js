@@ -15,13 +15,6 @@ define([
       render: function(){
         this.$el.html(issuePageTemplate);
 
-        $("#page-left").click(function() {
-          console.log("clicked left");
-        });
-        $("#page-right").click(function() {
-          console.log("clicked right");
-        });
-
         var model = new issueModel(this.options);
         var view = new issueView({model: model});
 
