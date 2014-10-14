@@ -11,7 +11,7 @@ define([], function getUtilities() {
   }
   /* COME BACK TO THIS */
   function linkProfiles(text) {
-    return text.replace(/(^|\s|>)@([a-zA-Z_-]{2,})/g, '$1<a href="https://github.com/$2">@$2</a>');
+    return text.replace(/(^|\s|>)@([a-zA-Z0-9_-]{2,})/g, '$1<a href="https://github.com/$2">@$2</a>');
   }
 
   return {makeBlurb: makeBlurb,

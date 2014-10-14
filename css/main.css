@@ -6,7 +6,7 @@ body {
         radial-gradient(black 15%, transparent 16%) 8px 8px,
         radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
         radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-    background-color:#282828;
+    background-color:#333333;
     background-size:16px 16px;
 }
 
@@ -16,46 +16,48 @@ body {
     margin-bottom: 20px;
     border-radius: 3px;
     box-shadow: 0 0 5px #AAA;
-    padding: 10px;
+    padding: 15px;
+    color: #333;
 }
 
 
 /* issues list */
 .issue-list {
     list-style-type: none;
-}
-.issues-header {
-  margin-left: 10px;
+    padding: 0;
+    margin: 0;
 }
 .issue {
-  color: #555;
-  cursor: pointer;
-  padding: 5px;
-  margin-bottom: 20px;
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 20px;
 }
 .issue:hover {
-  background-color: #EFEFEF;
-  border-radius: 5px;
+    background-color: #EFEFEF;
+    border-radius: 5px;
 }
 .issue-left {
-  padding-right: 10px;
+    padding-right: 10px;
 }
 .gravatar {
-  border-radius: 4px;
-  border: 2px solid #EFEFEF;
-  max-width:60px;
-  max-height:60px;
+    border-radius: 4px;
+    border: 2px solid #EFEFEF;
+    max-width:60px;
+    max-height:60px;
+}
+.github-handle {
+    font-size: 11px;
 }
 .issue-right {
-  text-align: right;
+    text-align: right;
 }
 .issue-header {
-  font-size: 18px;
-  font-weight: bold;
-  color: #555;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
 }
 .issue-body {
-   word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 
